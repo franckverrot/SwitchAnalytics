@@ -1,0 +1,14 @@
+set title "Number of #Switch games played over the world"
+unset multiplot
+set xdata time
+set style data lines
+set term png
+set datafile separator ","
+set timefmt "%Y-%m-%d %H:%M:%S"
+set format x "%m-%d\n%H:%M"
+set xlabel "Time"
+set ylabel "Games"
+set autoscale y
+set xrange ["2014-10-17 12:38":"2014-10-21 09:05"]
+set output "games.png"
+plot "/Users/cesario/Development/SwitchStats.csv" using 1:2 t "Games" w lines, "/Users/cesario/Development/SwitchStats.csv" u 1:3 t "outbound" w lines
